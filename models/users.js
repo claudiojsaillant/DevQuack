@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Users = sequelize.define("Users", {
     firstName: {
       type: DataTypes.STRING,
@@ -18,7 +18,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     profileUrl: DataTypes.STRING
   });
-
   Users.associate = function(models) {
     // Associating Users with Posts
     // When a User is deleted, also delete any associated Posts

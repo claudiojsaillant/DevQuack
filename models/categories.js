@@ -1,17 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
-  var Category = sequelize.define("Category", {
+  var Categories = sequelize.define("Categories", {
     name: {
       type: DataTypes.STRING,
       allowNull: false
     }
   });
 
-  Category.associate = function(models) {
+  Categories.associate = function(models) {
     // Associating Users with Comments
     // When a User is deleted, also delete any associated Comments
-    Category.hasMany(models.Posts, {
+    Categories.hasMany(models.Posts, {
       onDelete: "cascade"
     });
   };
-  return Category;
+  return Categories;
 };

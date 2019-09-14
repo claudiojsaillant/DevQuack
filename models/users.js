@@ -24,11 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     Users.hasMany(models.Posts, {
       onDelete: "cascade"
     });
-  };
 
-  Users.associate = function(models) {
-    // Associating Users with Comments
-    // When a User is deleted, also delete any associated Comments
     Users.hasMany(models.Comments, {
       onDelete: "cascade"
     });

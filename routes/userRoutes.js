@@ -42,4 +42,18 @@ module.exports = function(app) {
   //     res.json(data);
   //   });
   // });
+
+  // TESTING USER CREATION
+
+  app.get("/test/createUser", function(req, res) {
+    db.Users.create({
+      firstName: "John",
+      lastName: "Doe",
+      userName: "jdoe",
+      password: "pasword123",
+      profileUrl: "www.example.com"
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
 };

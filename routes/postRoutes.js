@@ -40,7 +40,6 @@ module.exports = function(app) {
   app.get("/api/posts/category/:categoryid/user/:userid", function(req, res) {
     var categoryId = req.params.categoryid;
     var userId = req.params.userid;
-    // var category = req.params.category;
     db.Posts.findAll({
       where: {
         UserId: userId,
@@ -57,7 +56,6 @@ module.exports = function(app) {
     db.Posts.create({
       content: req.body.content,
       title: req.body.title,
-      profileUrl: req.body.profileUrl,
       CategoryId: req.body.CategoryId,
       UserId: req.body.UserId,
       stars: 0

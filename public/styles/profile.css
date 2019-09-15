@@ -1,0 +1,77 @@
+.list-group-item {
+  line-height: 2.5;
+}
+.container {
+  margin: 0 auto;
+}
+#body-id {
+  position: relative;
+
+  /* background-color: goldenrod; 
+  background: url() no-repeat center center fixed; */
+}
+
+.post-section {
+  margin-top: 20px;
+}
+.bio-section {
+  margin-top: 20px;
+  border: solid yellow;
+  background-color: #669db3ff;
+  /* background-color: #616247FF; */
+}
+.post-section-post {
+  margin-top: 20px;
+  border-bottom: solid black;
+}
+.card-body {
+  margin: 0;
+  padding: 15px;
+}
+#user-image-id {
+  height: 200px;
+  width: 200px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#logo {
+  width: 70%;
+  height: 550px;
+}
+
+body {
+  /* background-color: #DAA03DFF; */
+  background-color: rgba(230, 197, 11, 0.993);
+}
+#name-div-bio-section{
+  margin: 10px;
+  font-family: 'Acme', sans-serif;
+  color: white;
+  font-size: 34px;
+}
+#no-of-post{
+  margin: 10px;
+  /* font-family: 'Acme', sans-serif; */
+  color: white;
+  font-size: 28px;
+}
+.dropdown{
+  margin-left: 10px;
+}
+.web-name{
+  position: fixed;
+  margin-top: -48px;
+  margin-left: 60px;
+  font-size: 24px;
+}
+
+.card-body{
+  padding-bottom: 0px;
+    padding-top: 0px;
+}
+#submit-a-post{
+  position: relative;
+  margin-top: -38px;
+  margin-left: 138px;
+}

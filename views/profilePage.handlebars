@@ -1,0 +1,112 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="./img/DevQuack.jpg" width="60" height="60" class="d-inline-block align-top" alt="">
+        <div class="web-name">DevQuack</div>
+    </a>
+    <form class="form-inline my-2 my-lg-0">
+        <button type="button" class="btn btn-info">Profile</button>
+        <button type="button" class="btn btn-warning">Dashboard</button>
+        <button type="button" class="btn btn-danger">Sign Out</button>
+    </form>
+</nav>
+
+<div class="container">
+    <div class="row bio-section">
+        <div class="col">
+            <div class="user-image">
+                <img id="user-image-id"
+                    src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/avengers-end-game-chris-evans-captain-america-1-1552569157.jpg"
+                    alt="image">
+            </div>
+        </div>
+        <div class="col">
+
+            <div id="name-div-bio-section">
+                <p>
+                    Name: <span>{{user.firstName}} {{user.lastName}}</span>
+                </p>
+            </div>
+            <div id="no-of-post">
+                <p>
+                    Total Number of Post: <span>{{postsNumber}}</span>
+                </p>
+            </div>
+
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catagory
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Public</a>
+                    <a class="dropdown-item" href="#">Private</a>
+                    <a class="dropdown-item" href="#">Project</a>
+                </div>
+            </div>
+            <div id="submit-a-post"><a href="#" class="btn btn-primary">Submit a Post</a></div>
+
+        </div>
+    </div>
+    <div class="row post-section">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Public Posts
+                </div>
+
+                <div class="card-body">
+
+                    {{#each publicPosts}}
+                    <li>
+                        {{this.title}}
+                    </li>
+                    {{/each}}
+                    <div class="row post-section-post">
+                        <div class="col">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.
+                            </p>
+                            <a href="#" class="btn btn-primary">Ratings</a>
+                            <a href="#" class="btn btn-primary">Quack</a>
+                        </div>
+                    </div>
+
+                    <div class="row post-section-post">
+                        <div class="col">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.
+                            </p>
+                            <a href="#" class="btn btn-primary">Ratings</a>
+                            <a href="#" class="btn btn-primary">Quack</a>
+                        </div>
+                    </div>
+
+
+                    <div class="row post-section-post">
+                        <div class="col">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.
+                            </p>
+                            <a href="#" class="btn btn-primary">Ratings</a>
+                            <a href="#" class="btn btn-primary">Quack</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/profile.css" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">

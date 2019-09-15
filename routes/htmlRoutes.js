@@ -2,26 +2,49 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
+  // app.get("/", function(req, res) {
+  //   db.Users.findAll({}).then(function(user) {
+  //     res.render("index2", {
+  //       msg: "Welcome!",
+  //       users: user
+  //     });
+  //     console.log(user);
+  //   });
+  // });
   app.get("/", function(req, res) {
-    db.Users.findAll({}).then(function(user) {
-      res.render("index", {
+    db.Posts.findAll({
+      where: {
+        CategoryId: "1"
+      },
+      include: [db.Categories, db.Comments, db.Users]
+    }).then(function(user) {
+      res.render("index2", {
         msg: "Welcome!",
         users: user
       });
       console.log(user);
     });
   });
-
   app.get("/welcome/:userid", function(req, res) {
     var userId = req.params.userid;
     db.Users.findAll({
       where: {
         id: userId
-      }
+      },
+      include: [db.Posts]
     }).then(function(user) {
-      res.render("index", {
-        msg: "Welcome " + user[0].firstName,
-        users: user
+      publicPosts = [];
+      for (i = 0; i < user[0].Posts.length; i++) {
+        if(user[0].Posts[i].CategoryId === 1){
+
+          publicPosts.push(user[0].Posts[i])
+        }
+      }
+      console.log(publicPosts);
+      res.render("profilepage", {
+        postsNumber: user[0].Posts.length,
+        user: user[0],
+        publicPosts: publicPosts
       });
     });
   });
@@ -34,7 +57,7 @@ module.exports = function(app) {
       }
     }).then(function(userData) {
       if (userData.length !== 0) {
-        res.render("profile", {
+        res.render("profilePage", {
           msg: "Welcome " + userData[0].firstName + " " + userData[0].lastName,
           user: userData
         });

@@ -8,10 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     stars: {
       type: DataTypes.DECIMAL
     }

@@ -8,6 +8,7 @@ module.exports = function(app) {
         msg: "Welcome!",
         users: user
       });
+      console.log(user);
     });
   });
 
@@ -17,9 +18,10 @@ module.exports = function(app) {
       where: {
         id: userId
       }
-    }).then(function(userData) {
-      res.render("logged", {
-        user: userData
+    }).then(function(user) {
+      res.render("index", {
+        msg: "Welcome " + user[0].firstName,
+        users: user
       });
     });
   });

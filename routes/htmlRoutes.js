@@ -35,9 +35,8 @@ module.exports = function(app) {
     }).then(function(user) {
       publicPosts = [];
       for (i = 0; i < user[0].Posts.length; i++) {
-        if(user[0].Posts[i].CategoryId === 1){
-
-          publicPosts.push(user[0].Posts[i])
+        if (user[0].Posts[i].CategoryId === 1) {
+          publicPosts.push(user[0].Posts[i]);
         }
       }
       console.log(publicPosts);

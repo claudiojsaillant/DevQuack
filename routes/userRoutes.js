@@ -45,13 +45,12 @@ module.exports = function(app) {
 
   // TESTING USER CREATION
 
-  app.get("/test/createUser", function(req, res) {
-    db.Users.create({
-      firstName: "Bob",
-      lastName: "Builder",
-      userName: "bodbabuilder",
-      password: "pasword123",
-      profileUrl: "www.example2.com"
+  app.get("/test/createComment", function(req, res) {
+    db.Comments.create({
+      content: "What the hell are you saying",
+      upvotes: 0,
+      UserId: "1",
+      PostId: "1"
     }).then(function(data) {
       res.json(data);
     });

@@ -1,14 +1,23 @@
-<h4 class="card-text">
-  Welcome to the DevQuack Community an application for Developers by
+<div class="jumbotron">
+  <h1 class="display-4">Hello, Developers!</h1>
+  <p class="lead">This is a cool social app!</p>
+  <hr class="my-4">
+  <p>  Welcome to the DevQuack Community an application for Developers by
   Developers, We look forward to your Quacks, the World needs you, Start
   Quacking Away! Post a Quack now on your favorite topic or Build a Team and
   Design something Amazing, the time is Now! Quack-Quack- From the DevQuack
-  Team, Welcome :-)
+  Team, Welcome :-).</p>
+  <p class="jumbp lead mx-auto text-center">
+    <a class="jumbtn btn btn-primary btn-lg" href="#" role="button">Sign Up Now!</a>
+  </p>
+</div>
+<h4 class="card-text">
+
 </h4>
 
 <div class="container">
   {{#each posts}}
-   <div class="row">
+   <div class="row post">
 
     <div class="card w-100">
       <h5 class="card-header">{{this.User.userName}} On {{this.createdAt}}</h5>
@@ -106,5 +115,6 @@
       </div>
     </div>
   </div>
+  --}}
 
-  <link rel="stylesheet" href="/styles/styles.css" /> --}}
+  <link rel="stylesheet" href="/styles/root.css" /> 

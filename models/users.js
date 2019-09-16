@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     profileUrl: DataTypes.STRING
   });
+
   Users.associate = function(models) {
     // Associating Users with Posts
     // When a User is deleted, also delete any associated Posts

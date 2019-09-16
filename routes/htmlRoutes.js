@@ -25,7 +25,8 @@ module.exports = function(app) {
       console.log(user);
     });
   });
-  app.get("/welcome/:userid", function(req, res) {
+  app.get("/welcome/:userid/:categoryid", function(req, res) {
+    var categoryid = req.params.categoryid;
     var userId = req.params.userid;
     db.Users.findAll({
       where: {
@@ -35,11 +36,12 @@ module.exports = function(app) {
     }).then(function(user) {
       publicPosts = [];
       for (i = 0; i < user[0].Posts.length; i++) {
-        if (user[0].Posts[i].CategoryId === 1) {
+        if (user[0].Posts[i].CategoryId === parseInt(req.params.categoryid)) {
           publicPosts.push(user[0].Posts[i]);
         }
       }
       console.log(publicPosts);
+      console.log(categoryid);
       res.render("profilepage", {
         postsNumber: user[0].Posts.length,
         user: user[0],

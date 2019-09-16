@@ -11,7 +11,7 @@ module.exports = function(app) {
   });
   app.get("/test/createNewCat", function(req, res) {
     db.Categories.create({
-      name: "Public"
+      name: "Pivate"
     }).then(function(data) {
       res.json(data);
     });
@@ -73,8 +73,8 @@ module.exports = function(app) {
   app.get("/newpost/:userId", function(req, res) {
     db.Posts.create({
       content: "This is just a testing content",
-      title: "This is just a testing title",
-      CategoryId: "1",
+      title: "This is just a testing title Private",
+      CategoryId: "3",
       UserId: "1",
       stars: 0
     }).then(function(data) {

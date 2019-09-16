@@ -17,12 +17,11 @@ module.exports = function(app) {
         CategoryId: "1"
       },
       include: [db.Categories, db.Comments, db.Users]
-    }).then(function(user) {
-      res.render("index2", {
+    }).then(function(postsData) {
+      res.render("index", {
         msg: "Welcome!",
-        users: user
+        posts: postsData
       });
-      console.log(user);
     });
   });
   app.get("/welcome/:userid/:categoryid", function(req, res) {

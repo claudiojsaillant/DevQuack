@@ -5,112 +5,106 @@
   Design something Amazing, the time is Now! Quack-Quack- From the DevQuack
   Team, Welcome :-)
 </h4>
-<h1>Aaaaa {{msg}}</h1>
+
 <div class="container">
-  <div class="row">
-    <div>
-      <h1>
-        SURVIVING BOOTCAMP 101: Give Your Best Advice to Would be Developers
-        on Taking a Bootcamp Course
-      </h1>
-      <p>(Login toSee Quacks Inside)</p>
+  {{#each posts}}
+   <div class="row">
 
-      <button type="button" class="btn btn-warning">Rating</button>
-      <button type="button" class="btn btn-primary">Quack</button>
-
-      <div class="rate">
-        <input type="radio" id="star5" name="rate" value="5" />
-        <label for="star5" title="text">5 stars</label>
-        <input type="radio" id="star4" name="rate" value="4" />
-        <label for="star4" title="text">4 stars</label>
-        <input type="radio" id="star3" name="rate" value="3" />
-        <label for="star3" title="text">3 stars</label>
-        <input type="radio" id="star2" name="rate" value="2" />
-        <label for="star2" title="text">2 stars</label>
-        <input type="radio" id="star1" name="rate" value="1" />
-        <label for="star1" title="text">1 star</label>
-      </div>
-      <h6>Claudio Saillant</h6>
-    </div>
-  </div>
-
-<br />
-<hr />
-
-<div class="row">
-  <div>
-    <h1>
-      PUTTING YOUR DUCKS IN A ROW, HOW DO YOU MAXIMIZE PERFORMANCE?
-    </h1>
-    <p>(Login to See Quacks Inside)</p>
-
-    <button type="button" class="btn btn-warning">Rating</button>
-    <button type="button" class="btn btn-primary">Quack</button>
-
-    <div class="rate">
-      <input type="radio" id="star5" name="rate" value="5" />
-      <label for="star5" title="text">5 stars</label>
-      <input type="radio" id="star4" name="rate" value="4" />
-      <label for="star4" title="text">4 stars</label>
-      <input type="radio" id="star3" name="rate" value="3" />
-      <label for="star3" title="text">3 stars</label>
-      <input type="radio" id="star2" name="rate" value="2" />
-      <label for="star2" title="text">2 stars</label>
-      <input type="radio" id="star1" name="rate" value="1" />
-      <label for="star1" title="text">1 star</label>
-    </div>
-    <h6>Praveen Hariharan</h6>
-  </div>
-</div>
-
-<br />
-<hr />
-
-<div class="row">
-  <div>
-    <h1>
-      DEVELOPERS TRAVEL, WHAT ARE SOME OF YOUR FAVORITE DESTINATIONS?
-    </h1>
-    <p>(Login to See Quacks Inside)</p>
-
-    <button type="button" class="btn btn-warning">Rating</button>
-    <button type="button" class="btn btn-primary">Quack</button>
-
-    <div class="rate">
-      <input type="radio" id="star5" name="rate" value="5" />
-      <label for="star5" title="text">5 stars</label>
-      <input type="radio" id="star4" name="rate" value="4" />
-      <label for="star4" title="text">4 stars</label>
-      <input type="radio" id="star3" name="rate" value="3" />
-      <label for="star3" title="text">3 stars</label>
-      <input type="radio" id="star2" name="rate" value="2" />
-      <label for="star2" title="text">2 stars</label>
-      <input type="radio" id="star1" name="rate" value="1" />
-      <label for="star1" title="text">1 star</label>
-    </div>
-    <h6>Shahriar Bin Elias</h6>
-  </div>
-</div>
-</div>
-
-<link rel="stylesheet" href="/styles/styles.css" />
-
-<!-- <div class="card mb-3">
-      <img src="./img/DevQuack.JPG" class="card-img-top" alt="..." />
+    <div class="card w-100">
+      <h5 class="card-header">{{this.User.userName}} On {{this.createdAt}}</h5>
       <div class="card-body">
-        <h5 class="card-title">DevQuack</h5>
-        <p class="card-text">
-          SOCIALIZE - CODE - CHANGE THE WORLD :-) Welcome to the DevQuack
-          Community an application for Developers by Developers, we Welcome you.
-          We look forward to your Quacks, the World needs you, Stark Quacking
-          Away! Post a Quack now on your favorite topic or Build a Team and
-          Design something Amazing, the time is Now! Quack-Quack- From the
-          DevQuack Team
-        </p>
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.content}}</p>
+        <button type="button" class="btn btn-warning">Rate</button>
+        <button type="button" class="btn btn-primary">Quacks({{this.Comments.length}})</button>
       </div>
-    </div> -->
+    </div>
 
-<!-- <img src="./img/DevQuack3.jpg" /> -->
+  </div>
+  {{/each}}
+  {{!-- <div>
+        <h1>
+          SURVIVING BOOTCAMP 101: Give Your Best Advice to Would be Developers
+          on Taking a Bootcamp Course
+        </h1>
+        <p>(Login toSee Quacks Inside)</p>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <button type="button" class="btn btn-warning">Rating</button>
+        <button type="button" class="btn btn-primary">Quack</button>
+
+        <div class="rate">
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+        <h6>Claudio Saillant</h6>
+      </div>
+    </div>
+
+    <br />
+    <hr />
+
+    <div class="row">
+      <div>
+        <h1>
+          PUTTING YOUR DUCKS IN A ROW, HOW DO YOU MAXIMIZE PERFORMANCE?
+        </h1>
+        <p>(Login to See Quacks Inside)</p>
+
+        <button type="button" class="btn btn-warning">Rating</button>
+        <button type="button" class="btn btn-primary">Quack</button>
+
+        <div class="rate">
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+        <h6>Praveen Hariharan</h6>
+      </div>
+    </div>
+
+    <br />
+    <hr />
+
+    <div class="row">
+      <div>
+        <h1>
+          DEVELOPERS TRAVEL, WHAT ARE SOME OF YOUR FAVORITE DESTINATIONS?
+        </h1>
+        <p>(Login to See Quacks Inside)</p>
+
+        <button type="button" class="btn btn-warning">Rating</button>
+        <button type="button" class="btn btn-primary">Quack</button>
+
+        <div class="rate">
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+        <h6>Shahriar Bin Elias</h6>
+      </div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="/styles/styles.css" /> --}}

@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Crick@t123",
+    "password": "whatsdown",
     "database": "devquack_db",
     "host": "localhost",
     "dialect": "mysql"

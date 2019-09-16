@@ -1,4 +1,4 @@
-.list-group-item {
+/* /* .list-group-item {
   line-height: 2.5;
 }
 
@@ -6,7 +6,7 @@
    background-color: goldenrod; 
   background: url("../img/DevQuack.jpg") no-repeat center center fixed;
  } */
-
+/* 
 #logo {
   width: 70%;
   height: 550px;
@@ -50,6 +50,10 @@
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
   color: #c59b08;
-}
+}  
 
-/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+ */
+/* 
+ .card {
+  width: 300px;
+ } */

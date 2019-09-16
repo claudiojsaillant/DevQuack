@@ -47,11 +47,11 @@ module.exports = function(app) {
 
   app.get("/test/createUser", function(req, res) {
     db.Users.create({
-      firstName: "John",
-      lastName: "Doe",
-      userName: "jdoe",
+      firstName: "Bob",
+      lastName: "Builder",
+      userName: "bodbabuilder",
       password: "pasword123",
-      profileUrl: "www.example.com"
+      profileUrl: "www.example2.com"
     }).then(function(data) {
       res.json(data);
     });

@@ -9,7 +9,13 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-
+  app.get("/test/createNewCat", function(req, res) {
+    db.Categories.create({
+      name: "Public"
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
   // Specific post with comments and users and category
   app.get("/api/posts/:id", function(req, res) {
     var postId = req.params.id;
@@ -52,18 +58,29 @@ module.exports = function(app) {
   });
 
   // Create new post
-  app.post("/newpost/:userId", function(req, res) {
+  // app.post("/newpost/:userId", function(req, res) {
+  //   db.Posts.create({
+  //     content: req.body.content,
+  //     title: req.body.title,
+  //     CategoryId: req.body.CategoryId,
+  //     UserId: req.body.UserId,
+  //     stars: 0
+  //   }).then(function(data) {
+  //     res.json(data);
+  //   });
+  // });
+  //ourwork
+  app.get("/newpost/:userId", function(req, res) {
     db.Posts.create({
-      content: req.body.content,
-      title: req.body.title,
-      CategoryId: req.body.CategoryId,
-      UserId: req.body.UserId,
+      content: "This is just a testing content",
+      title: "This is just a testing title",
+      CategoryId: "1",
+      UserId: "1",
       stars: 0
     }).then(function(data) {
       res.json(data);
     });
   });
-
   // Update post
   app.put("/api/posts", function(req, res) {
     db.Posts.update(

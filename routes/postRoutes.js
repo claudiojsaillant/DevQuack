@@ -58,29 +58,31 @@ module.exports = function(app) {
   });
 
   // Create new post
-  // app.post("/newpost/:userId", function(req, res) {
-  //   db.Posts.create({
-  //     content: req.body.content,
-  //     title: req.body.title,
-  //     CategoryId: req.body.CategoryId,
-  //     UserId: req.body.UserId,
-  //     stars: 0
-  //   }).then(function(data) {
-  //     res.json(data);
-  //   });
-  // });
-  //ourwork
-  app.get("/newpost/:userId", function(req, res) {
+  app.post("/newpost/:userId", function(req, res) {
     db.Posts.create({
-      content: "This is just a testing content",
-      title: "This is just a testing title Private",
-      CategoryId: "3",
-      UserId: "1",
+      content: req.body.content,
+      title: req.body.title,
+      CategoryId: req.body.CategoryId,
+      UserId: req.body.UserId,
       stars: 0
     }).then(function(data) {
       res.json(data);
     });
   });
+  //ourwork
+  // app.get("/newpost/:userId", function(req, res) {
+  //   db.Posts.create({
+  //     content: "This is just a testing content",
+  //     title: "This is just a testing title Private",
+  //     CategoryId: "3",
+  //     UserId: "1",
+  //     stars: 0
+  //   }).then(function(data) {
+  //     res.json(data);
+  //   });
+  // });
+
+  
   // Update post
   app.put("/api/posts", function(req, res) {
     db.Posts.update(

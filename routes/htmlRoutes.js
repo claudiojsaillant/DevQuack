@@ -31,20 +31,25 @@ module.exports = function(app) {
       where: {
         id: userId
       },
-      include: [db.Posts]
+      include: [db.Posts, db.Comments]
     }).then(function(user) {
       publicPosts = [];
+      console.log(user);
+
       for (i = 0; i < user[0].Posts.length; i++) {
         if (user[0].Posts[i].CategoryId === parseInt(req.params.categoryid)) {
           publicPosts.push(user[0].Posts[i]);
         }
       }
+
       console.log(publicPosts);
       console.log(categoryid);
+      console.log(user[0].profileUrl, "URL");
       res.render("profilepage", {
+        url: user[0].profileUrl,
         postsNumber: user[0].Posts.length,
         user: user[0],
-        publicPosts: publicPosts
+        publicPosts: publicPosts.reverse()
       });
     });
   });

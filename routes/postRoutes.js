@@ -82,7 +82,6 @@ module.exports = function(app) {
   //   });
   // });
 
-  
   // Update post
   app.put("/api/posts", function(req, res) {
     db.Posts.update(

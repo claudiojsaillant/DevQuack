@@ -16,8 +16,9 @@
 }
 .bio-section {
   margin-top: 20px;
-  border: solid yellow;
-  background-color: #669db3ff;
+  /* border: solid grey; */
+  color: black;
+  background-color: white;
   /* background-color: #616247FF; */
 }
 .post-section-post {
@@ -47,20 +48,23 @@ body {
 #name-div-bio-section{
   margin: 10px;
   font-family: 'Acme', sans-serif;
-  color: white;
+  color: black;
   font-size: 34px;
+}
+#Nav-logo{
+  padding-bottom: 8px;
 }
 #no-of-post{
   margin: 10px;
   /* font-family: 'Acme', sans-serif; */
-  color: white;
+  color: black;
   font-size: 28px;
 }
 .dropdown{
   margin-left: 10px;
 }
 .web-name{
-  position: fixed;
+  position: relative;
   margin-top: -48px;
   margin-left: 60px;
   font-size: 24px;
@@ -74,4 +78,27 @@ body {
   position: relative;
   margin-top: -38px;
   margin-left: 138px;
+}
+
+.mainh1 {
+  margin-top: 30px;
+
+}
+
+h5 {
+  padding-top: 10px;
+}
+
+.post p {
+
+  margin: 10px;
+  padding-bottom: 10px;
+}
+
+.card {
+  padding: 15px;
+}
+
+.bio-section {
+  padding-bottom: 15px;
 }

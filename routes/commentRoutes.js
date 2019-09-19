@@ -2,21 +2,21 @@ var db = require("../models");
 
 module.exports = function(app) {
   // New comment
-  // app.post("/api/comment", function(req, res) {
-  //   db.Comments.create({
-  //     content: req.body.content,
-  //     upvotes: 0,
-  //     UserId: req.body.userId,
-  //     PostId: req.body.postId
-  //   }).then(function(data) {
-  //     res.json(data);
-  //   });
-  // });
   app.post("/api/comment", function(req, res) {
     db.Comments.create({
-      content: "What the hell are you saying",
+      content: req.body.content,
       upvotes: 0,
-      UserId: "1",
+      UserId: req.body.userId,
+      PostId: req.body.postId
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  app.get("/addCommentTest", function(req, res) {
+    db.Comments.create({
+      content: req.b,
+      upvotes: 0,
+      UserId: "3",
       PostId: "1"
     }).then(function(data) {
       res.json(data);

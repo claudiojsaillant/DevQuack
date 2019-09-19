@@ -14,10 +14,10 @@ module.exports = function(app) {
   });
   app.get("/addCommentTest", function(req, res) {
     db.Comments.create({
-      content: req.b,
+      content: "Posting a text as comment",
       upvotes: 0,
       UserId: "3",
-      PostId: "1"
+      PostId: "22"
     }).then(function(data) {
       res.json(data);
     });

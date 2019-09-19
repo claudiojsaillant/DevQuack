@@ -16,9 +16,7 @@
     <div class="row bio-section">
         <div class="col">
             <div class="user-image">
-                <img id="user-image-id"
-                    src="{{url}}"
-                    alt="image">
+                <img id="user-image-id" src="{{url}}" alt="image">
             </div>
         </div>
         <div class="col">
@@ -68,20 +66,6 @@
         </div>
     </div>
 
-    {{!-- <div id="newPostForm">
-        <p>
-            Title
-        </p>
-        <input id="user-profile-title"></input>
-        <p>
-            Content
-        </p>
-        <input id="user-profile-content">
-        </input>
-        <p>
-            <div id="Submit-a-post"><a href="#" class="btn btn-primary">Submit</a></div>
-        </p>
-    </div> --}}
     <div class="row post-section">
         <div class="col">
             <div class="card">
@@ -96,22 +80,13 @@
                             <h5 class="card-title">{{this.title}}</h5>
                             <p class="card-text">{{this.content}}</p>
                         </div>
+                        <div id="button-prof-section">
+                            <button type="button" class="btn btn-warning">Rate</button>
+                            <a href="/post/{{this.id}}" class="btn btn-warning">Quacks</a>
+                        </div>
                     </div>
-
                 </div>
                 {{/each}}
-
-                {{!-- 
-                {{#each publicPosts}}
-                <div class="row post-section-post">
-                    <div class="col">
-                        <p class="card-text">{{this.title}}
-                        </p>
-                        <p class="card-text">{{this.content}}
-                        </p>
-                    </div>
-                </div>
-                {{/each}} --}}
 
             </div>
         </div>

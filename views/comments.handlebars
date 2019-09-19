@@ -1,0 +1,102 @@
+<h1>Comments here</h1>
+<h3>Handlebar test: {{msg}}</h3>
+
+<div class="container">
+    <div> 
+        <p>This is the post div</p>
+        <p>{{post.title}}</p>
+
+    </div>
+
+    <div class="panel-body">
+        <ul class="chat">
+            {{#each comment}}
+           
+            
+            <li class="left clearfix"><span class="chat-img">
+                    <img src={{this.User.profileUrl}} alt="User Avatar" class="img-circle" />
+                </span>
+                <div class="chat-body clearfix">
+                    <div class="header">
+                        <strong class="primary-font">{{this.User.userName}}</strong> <small class="pull-right text-muted">
+                            <span class="glyphicon glyphicon-time"></span>{{this.createdAt}}</small>
+                    </div>
+                    <p>
+                        {{this.content}}
+                    </p>
+                </div>
+            </li>
+            {{/each}}
+       
+        </ul>
+    </div>
+    <div class="panel-footer">
+        <h1>post comment here</h1>
+    </div>
+</div>
+
+<style>
+    .chat {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .chat li {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted #B3A9A9;
+    }
+
+    .chat li.left .chat-body {
+        margin-left: 60px;
+    }
+
+    .chat li.right .chat-body {
+        margin-right: 60px;
+    }
+
+
+    .chat li .chat-body p {
+        margin: 0;
+        color: #777777;
+    }
+
+    .panel .slidedown .glyphicon,
+    .chat .glyphicon {
+        margin-right: 5px;
+    }
+
+    .panel-body {
+        overflow-y: scroll;
+        height: 600px;
+
+    }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: #555;
+    }
+
+    img-circle {
+        width: 5%;
+        height: 5%;
+    }
+
+    img {
+        width: 8%;
+    }
+</style>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">

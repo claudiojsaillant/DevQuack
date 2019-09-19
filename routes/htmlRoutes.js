@@ -1,16 +1,6 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
-  // app.get("/", function(req, res) {
-  //   db.Users.findAll({}).then(function(user) {
-  //     res.render("index2", {
-  //       msg: "Welcome!",
-  //       users: user
-  //     });
-  //     console.log(user);
-  //   });
-  // });
   app.get("/", function(req, res) {
     db.Posts.findAll({
       where: {
@@ -79,6 +69,32 @@ module.exports = function(app) {
     }).then(function(data) {
       res.render("newpost", {
         user: data
+      });
+    });
+  });
+
+  app.get("/post/:id", function(req, res) {
+    var postId = req.params.id;
+
+    db.Posts.findAll({
+      where: {
+        id: postId
+      },
+      include: [db.Users, db.Comments]
+    }).then(function(data) {
+
+      db.Comments.findAll({
+        where: {
+          PostId: data[0].id
+        },
+        include: [db.Users]
+      }).then(function(myData) {
+        res.render("comments", {
+          msg: "Heyyyyy",
+          post: data[0],
+          comment: myData
+        });
+        // res.json(myData);
       });
     });
   });

@@ -20,7 +20,7 @@ module.exports = function(app) {
     res.render("registration");
   });
   app.get("/welcome/:userid/:categoryid", function(req, res) {
-    var categoryid = req.params.categoryid;
+    // var categoryid = req.params.categoryid;
     var userId = req.params.userid;
     db.Users.findAll({
       where: {

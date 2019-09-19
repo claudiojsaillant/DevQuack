@@ -82,7 +82,6 @@ module.exports = function(app) {
       },
       include: [db.Users, db.Comments]
     }).then(function(data) {
-
       db.Comments.findAll({
         where: {
           PostId: data[0].id

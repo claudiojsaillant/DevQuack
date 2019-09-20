@@ -11,7 +11,7 @@ module.exports = function(app) {
   });
   app.get("/test/createNewCat", function(req, res) {
     db.Categories.create({
-      name: "Pivate"
+      name: "Project"
     }).then(function(data) {
       res.json(data);
     });
@@ -69,18 +69,6 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  //ourwork
-  // app.get("/newpost/:userId", function(req, res) {
-  //   db.Posts.create({
-  //     content: "This is just a testing content",
-  //     title: "This is just a testing title Private",
-  //     CategoryId: "3",
-  //     UserId: "1",
-  //     stars: 0
-  //   }).then(function(data) {
-  //     res.json(data);
-  //   });
-  // });
 
   // Update post
   app.put("/api/posts", function(req, res) {

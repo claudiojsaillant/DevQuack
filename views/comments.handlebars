@@ -1,8 +1,9 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">
-    <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-    DevQuack
-  </a>
+    <a class="navbar-brand" href="/">
+        <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="30" height="30"
+            class="d-inline-block align-top" alt="">
+        DevQuack
+    </a>
 </nav>
 
 <div class="container">
@@ -40,22 +41,28 @@
             {{/each}}
 
         </ul>
+
+     <div class="card newComment">
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Your comment on the Post</label>
+                <input type="text" class="form-control" id="content" aria-describedby="emailHelp"
+                    placeholder="Your comment for this post">
+                <input type="text" class="form-control" id="userid" aria-describedby="emailHelp"
+                    placeholder="input your id">
+                <small id="emailHelp" class="form-text text-muted">Your comment goes at the top</small>
+            </div>
+            <div id="Submit-a-post"><a href="#" class="btn btn-primary">Submit</a></div>
+
+        </div>
+
+    </div>
     </div>
 
+
 </div>
-<div class="newForm newPostForm">
-    <div class="card">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Your comment on the Post</label>
-            <input type="text" class="form-control" id="content" aria-describedby="emailHelp"
-                placeholder="Your comment for this post">
-            <input type="text" class="form-control" id="userid" aria-describedby="emailHelp"
-                placeholder="input your id">
-            <small id="emailHelp" class="form-text text-muted">Your comment goes at the top</small>
-        </div>
-        <div id="Submit-a-post"><a href="#" class="btn btn-primary">Submit</a></div>
-    </div>
-</div>
+
 
 <style>
     .container {
@@ -127,6 +134,13 @@
     .creator {
         margin-top: 0px;
     }
+
+    .newComment{
+        padding: 20px;
+    }
+    .newComment input {
+        margin-top: 15px;
+    }
 </style>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -143,9 +157,6 @@
 
     $("#Submit-a-post").on("click", function (event) {
         event.preventDefault();
-
-        console.log("You got clicked");
-
         var postId = $(".post").attr("value");
         var userId = $('#userid').val();
 
@@ -155,16 +166,20 @@
             userId: parseInt(userId),
             postId: parseInt(postId)
         }
-        submitComment(newComment);
+        if (newComment.content === "" && !newComment.userId) {
+            alert("make sure you fill out all boxes");
+        } else {
+            submitComment(newComment);
+        }
     })
     function submitComment(comment) {
-        $.ajax({ 
+        $.ajax({
             type: "POST",
             url: "/api/comment",
             data: comment,
             cache: false,
             success: function (data) {
-                location.reload();   
+                location.reload();
             }
         })
     }

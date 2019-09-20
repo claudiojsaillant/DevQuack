@@ -4,6 +4,11 @@
 
 .post {
     margin: 15px;
+    
+}
+
+.card button, a {
+    margin-bottom: 10px;
 }
 
 .newForm {

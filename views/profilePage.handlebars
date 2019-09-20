@@ -1,8 +1,9 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">
-    <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-    DevQuack
-  </a>
+    <a class="navbar-brand" href="/">
+        <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="30" height="30"
+            class="d-inline-block align-top" alt="">
+        DevQuack
+    </a>
 </nav>
 
 <div class="container">
@@ -87,10 +88,9 @@
 
     </div>
     <style>
-        #formDiv{
+        #formDiv {
             padding: 20px;
         }
-
     </style>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -124,7 +124,12 @@
                 UserId: parseInt(pageName[pageName.length - 3]),
                 stars: 0
             }
-            submitPost(newPost);
+            if (newPost.content == '' || newPost.title == '') {
+                alert('Make sure to fill out all the boxes!')
+            } else {
+                submitPost(newPost);
+            }
+
         })
         function submitPost(post) {
             $.ajax("/newpost/" + parseInt(pageName[pageName.length - 3]), {
@@ -140,11 +145,11 @@
             console.log($(this).text());
             $(".btn:first-child").text($(this).text());
         })
-        console.log(window.location);
+
         var pageName = window.location.pathname;
-        console.log(pageName);
+
         var pageType = pageName[pageName.length - 1]
-        console.log("pageType", pageType);
+
         if (pageType === "1") {
             $("#dropdownMenuLink").text("Public")
             $(".section-header").text("Public Posts")

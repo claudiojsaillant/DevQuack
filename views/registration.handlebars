@@ -72,12 +72,11 @@
             password: $("#exampleInputPassword1").val().trim(),
             profileUrl: $("#Profile-Url").val().trim()
         }
-        if($("#First-Name").val().trim() === '' || $("#Last-Name").val().trim() === '' || $("#User-Name").val().trim() === '' || $("#exampleInputPassword1").val().trim() || $("#Profile-Url").val().trim()){
+        if(newUser.firstName === '' || newUser.lastName === '' || newUser.password === '' || newUser.profileUrl === "" || newUser.userName === ""){
             alert("Make sure you fill all boxes");
         } else {
             submitUser(newUser);
         }
-        
     })
     function submitUser(newUser) {
         $.ajax({

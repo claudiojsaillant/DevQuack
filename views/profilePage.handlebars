@@ -1,15 +1,9 @@
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="60" height="60"
-            class="d-inline-block align-top" id="Nav-logo" alt="">
-        <div class="web-name">DevQuack</div>
-        <div></div>
+    <a class="navbar-brand" href="/">
+        <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="30" height="30"
+            class="d-inline-block align-top" alt="">
+        DevQuack
     </a>
-    <form class="form-inline my-2 my-lg-0">
-        <button type="button" class="btn btn-info">Profile</button>
-        <button type="button" class="btn btn-warning">Dashboard</button>
-        <button type="button" class="btn btn-danger">Sign Out</button>
-    </form>
 </nav>
 
 <div class="container">
@@ -49,7 +43,7 @@
         </div>
     </div>
     <div class="newForm newPostForm">
-        <div class="card">
+        <div class="card" id="formDiv">
             <div class="form-group">
                 <label for="exampleInputEmail1">Tile of the Post</label>
                 <input type="text" class="form-control" id="user-profile-title" aria-describedby="emailHelp"
@@ -93,6 +87,11 @@
 
 
     </div>
+    <style>
+        #formDiv {
+            padding: 20px;
+        }
+    </style>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -125,7 +124,12 @@
                 UserId: parseInt(pageName[pageName.length - 3]),
                 stars: 0
             }
-            submitPost(newPost);
+            if (newPost.content == '' || newPost.title == '') {
+                alert('Make sure to fill out all the boxes!')
+            } else {
+                submitPost(newPost);
+            }
+
         })
         function submitPost(post) {
             $.ajax("/newpost/" + parseInt(pageName[pageName.length - 3]), {
@@ -141,11 +145,11 @@
             console.log($(this).text());
             $(".btn:first-child").text($(this).text());
         })
-        console.log(window.location);
+
         var pageName = window.location.pathname;
-        console.log(pageName);
+
         var pageType = pageName[pageName.length - 1]
-        console.log("pageType", pageType);
+
         if (pageType === "1") {
             $("#dropdownMenuLink").text("Public")
             $(".section-header").text("Public Posts")

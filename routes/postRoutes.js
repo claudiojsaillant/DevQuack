@@ -9,13 +9,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  app.get("/test/createNewCat", function(req, res) {
-    db.Categories.create({
-      name: "Pivate"
-    }).then(function(data) {
-      res.json(data);
-    });
-  });
+
   // Specific post with comments and users and category
   app.get("/api/posts/:id", function(req, res) {
     var postId = req.params.id;
@@ -69,18 +63,6 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  //ourwork
-  // app.get("/newpost/:userId", function(req, res) {
-  //   db.Posts.create({
-  //     content: "This is just a testing content",
-  //     title: "This is just a testing title Private",
-  //     CategoryId: "3",
-  //     UserId: "1",
-  //     stars: 0
-  //   }).then(function(data) {
-  //     res.json(data);
-  //   });
-  // });
 
   // Update post
   app.put("/api/posts", function(req, res) {
@@ -107,3 +89,27 @@ module.exports = function(app) {
     });
   });
 };
+
+app.get("/test/createNewCat1", function(req, res) {
+  db.Categories.create({
+    name: "Public"
+  }).then(function(data) {
+    res.json(data);
+  });
+});
+
+app.get("/test/createNewCat2", function(req, res) {
+  db.Categories.create({
+    name: "Project"
+  }).then(function(data) {
+    res.json(data);
+  });
+});
+
+app.get("/test/createNewCat3", function(req, res) {
+  db.Categories.create({
+    name: "Private"
+  }).then(function(data) {
+    res.json(data);
+  });
+});

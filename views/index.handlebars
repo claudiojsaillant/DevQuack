@@ -1,17 +1,11 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="60" height="60" class="d-inline-block align-top"
-      id="Nav-logo" alt="">
-    <div class="web-name">DevQuack</div>
-    <div></div>
+  <a class="navbar-brand" href="/">
+    <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+    DevQuack
   </a>
-  <form class="form-inline my-2 my-lg-0">
-    <button type="button" class="btn btn-info">Profile</button>
-    <button type="button" class="btn btn-warning">Dashboard</button>
-    <button type="button" class="btn btn-danger">Sign Out</button>
-  </form>
 </nav>
-<div class="jumbotron">
+
+<div class="jumbotron mx-auto">
   <h1 class="display-4">Hello, Developers!</h1>
   <p class="lead">This is a cool social app!</p>
   <hr class="my-4">
@@ -21,7 +15,7 @@
     Design something Amazing, the time is Now! Quack-Quack- From the DevQuack
     Team, Welcome :-).</p>
   <p class="jumbp lead mx-auto text-center">
-    <a class="jumbtn btn btn-primary btn-lg" href="#" role="button">Sign Up Now!</a>
+    <a class="jumbtn btn btn-primary btn-lg" href="/register" role="button">Sign Up Now!</a>
   </p>
 </div>
 <h4 class="card-text">
@@ -32,48 +26,18 @@
 
   {{#each posts}}
   <div class="row post">
-
     <div class="card w-100">
       <h5 class="card-header">{{this.User.userName}} On {{this.createdAt}}</h5>
       <div class="card-body">
         <h5 class="card-title">{{this.title}}</h5>
         <p class="card-text">{{this.content}}</p>
         <button type="button" class="btn btn-warning">Rate</button>
-        <a href="/post/{{this.id}}" class="btn btn-warning">Quacks</a>
+        <a href="/post/{{this.id}}" class="btn btn-warning">Quacks({{this.Comments.length}})</a>
       </div>
-
     </div>
-
   </div>
-
-  {{!-- <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-
-          
-          
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalScrollableTitle">Developer Quack Box</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Leave a Quack</label>
-              <textarea class="form-control" id="exampleForm" rows="3"></textarea>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="quackbutton">Quack</button>
-          </div>
-        </div>
-      </div>
-    </div> --}}
   {{/each}}
+
   <script src="https://code.jquery.com/jquery.js"></script>
   <link rel="stylesheet" href="/styles/root.css" />
   <link rel="stylesheet" href="/styles/profile.css" media="screen" title="no title" charset="utf-8">
@@ -87,14 +51,4 @@
   <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
   <script type="text/javascript">
 
-    $(document).ready(function () {
-      console.log("ready!");
-      $("#quackbutton").click(function () {
-        console.log("I've been Clicked")
-        var databack = $("#exampleForm").val().trim();
-        console.log(databack);
-        location.reload();
-      });
-    });
-    
   </script>

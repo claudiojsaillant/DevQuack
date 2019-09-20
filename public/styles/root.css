@@ -1,11 +1,21 @@
 .jumbp {
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .post {
-    margin: 25px;
+    margin: 15px;
+    
+}
+
+.card button, a {
+    margin-bottom: 10px;
 }
 
 .newForm {
     padding-top: 20px;
+}
+
+.jumbotron {
+    margin-top: 15px;
+    width: 90%;
 }

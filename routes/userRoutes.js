@@ -32,29 +32,10 @@ module.exports = function(app) {
       password: req.body.password,
       profileUrl: req.body.profileUrl
     }).then(function(data) {
-      res.json(data);
-    });
-  });
-
-  //Delete an user
-  // app.delete("/api/post/:id", function(req, res) {
-  //   db.Users.destroy({ where: { id: req.params.id } }).then(function(data) {
-  //     res.json(data);
-  //   });
-  // });
-
-  // TESTING USER CREATION
-
-  app.get("/test/createUser", function(req, res) {
-    db.Users.create({
-      firstName: "Clauds",
-      lastName: "Saillant",
-      userName: "csaillan",
-      password: "123",
-      profileUrl:
-        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/irish-actor-pierce-brosnan-as-james-bond-in-a-publicity-news-photo-138084872-1551742467.jpg?crop=1xw:1xh;center,top&resize=480:*"
-    }).then(function(data) {
-      res.json(data);
+      res.json({
+        status: "OK",
+        id: data.id
+      });
     });
   });
 };

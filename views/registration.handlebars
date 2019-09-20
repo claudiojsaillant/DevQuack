@@ -1,154 +1,51 @@
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="60" height="60"
-            class="d-inline-block align-top" id="Nav-logo" alt="">
-        <div class="web-name">DevQuack</div>
-        <div></div>
-    </a>
-    <form class="form-inline my-2 my-lg-0">
-        <button type="button" class="btn btn-info">Profile</button>
-        <button type="button" class="btn btn-warning">Dashboard</button>
-        <button type="button" class="btn btn-danger">Sign Out</button>
-    </form>
+  <a class="navbar-brand" href="/">
+    <img src="https://i.ibb.co/R7fHGqW/Dev-Quack-Top-Bar.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+    DevQuack
+  </a>
 </nav>
 
 <div class="container">
-    {{!-- 
-    <div id="commentUserID">{{this.commentUserID}}</div>
-    <div id="commentPostID">{{this.commentPostID}}</div>--}}
-    <div value="{{post.id}}" class="row post">
-        <div class="card w-100">
-            <h5 class="card-header creator">{{post.User.userName}} On {{this.createdAt}}</h5>
-            <div class="card-body">
-                <h5 class="card-title">{{post.title}}</h5>
-                <p class="card-text">{{post.content}}</p>
-            </div>
-        </div>
-    </div>
     <div class="panel-body">
-        <ul class="chat">
+        <form>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="First-Name" placeholder="Enter First Name">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="Last-Name" placeholder="Enter Last Name">
+            </div>
+            <div class="form-group">
+                <label for="userName">User Name</label>
+                <input type="text" class="form-control" id="User-Name" placeholder="Enter User Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="profileUrl">Profile Url</label>
+                <input type="text" class="form-control" id="Profile-Url" placeholder="Enter your Profile Url">
+            </div>
 
-            {{#each comment}}
-
-            <li class="left clearfix"><span class="chat-img">
-                    <img src={{this.User.profileUrl}} alt="User Avatar" class="img-circle" />
-                </span>
-                <div class="chat-body clearfix">
-                    <div class="header">
-                        <strong class="primary-font">{{this.User.userName}}</strong> <small
-                            class="pull-right text-muted">
-                            <span class="glyphicon glyphicon-time"></span>{{this.createdAt}}</small>
-                    </div>
-                    <p>
-                        {{this.content}}
-                    </p>
-                </div>
-            </li>
-            {{/each}}
-
-        </ul>
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-
 </div>
-<form>
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="First-Name" 
-            placeholder="Enter First Name">
-    </div>
-    <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="Last-Name" 
-            placeholder="Enter Last Name">
-    </div>
-    <div class="form-group">
-        <label for="userName">User Name</label>
-        <input type="text" class="form-control" id="User-Name" 
-            placeholder="Enter User Name">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-      <div class="form-group">
-        <label for="profileUrl">Profile Url</label>
-        <input type="text" class="form-control" id="Profile-Url" 
-            placeholder="Enter your Profile Url">
-    </div>
-  
-    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-</form>
+
 
 <style>
     .container {
         background-color: white;
     }
-
-    .chat {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    .chat li {
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-bottom: 1px dotted #B3A9A9;
-    }
-
-    .chat li.left .chat-body {
-        margin-left: 60px;
-    }
-
-    .chat li.right .chat-body {
-        margin-right: 60px;
-    }
-
-
-    .chat li .chat-body p {
-        margin: 0;
-        color: #777777;
-    }
-
-    .panel .slidedown .glyphicon,
-    .chat .glyphicon {
-        margin-right: 5px;
-    }
-
     .panel-body {
-        overflow-y: scroll;
-        height: 600px;
-
+        padding: 15px;
+    }
+    nav{
+       margin-bottom: 10px;
     }
 
-    ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        background-color: #F5F5F5;
-    }
-
-    ::-webkit-scrollbar {
-        width: 12px;
-        background-color: #F5F5F5;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-        background-color: #555;
-    }
-
-    img-circle {
-        width: 5%;
-        height: 5%;
-    }
-
-    img {
-        width: 8%;
-    }
-
-    .creator {
-        margin-top: 0px;
-    }
 </style>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -158,9 +55,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href="/styles/profile.css" media="screen" title="no title" charset="utf-8">
-<link rel="stylesheet" href="/styles/root.css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript">
 
     $("#submit").on("click", function (event) {
@@ -177,7 +72,11 @@
             password: $("#exampleInputPassword1").val().trim(),
             profileUrl: $("#Profile-Url").val().trim()
         }
-        submitUser(newUser);
+        if(newUser.firstName === '' || newUser.lastName === '' || newUser.password === '' || newUser.profileUrl === "" || newUser.userName === ""){
+            alert("Make sure you fill all boxes");
+        } else {
+            submitUser(newUser);
+        }
     })
     function submitUser(newUser) {
         $.ajax({
@@ -188,6 +87,11 @@
             success: function (data) {
                 location.reload();
             }
-        })
+        }).then(function (data) {
+                        if (data.id) {
+                            alert("Welcome to our family, your ID is: " + data.id);
+                            window.location.href = "/welcome/" + data.id + "/1";
+                        }
+                    });
     }
 </script>

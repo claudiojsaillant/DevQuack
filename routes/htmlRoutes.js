@@ -19,6 +19,7 @@ module.exports = function(app) {
   app.get("/register", function(req, res) {
     res.render("registration");
   });
+
   app.get("/welcome/:userid/:categoryid", function(req, res) {
     // var categoryid = req.params.categoryid;
     var userId = req.params.userid;
@@ -30,51 +31,22 @@ module.exports = function(app) {
     }).then(function(user) {
       publicPosts = [];
       console.log(user);
-
-      for (i = 0; i < user[0].Posts.length; i++) {
-        if (user[0].Posts[i].CategoryId === parseInt(req.params.categoryid)) {
-          publicPosts.push(user[0].Posts[i]);
+      if (user[0]) {
+        for (i = 0; i < user[0].Posts.length; i++) {
+          if (user[0].Posts[i].CategoryId === parseInt(req.params.categoryid)) {
+            publicPosts.push(user[0].Posts[i]);
+          }
         }
-      }
 
-      res.render("profilepage", {
-        url: user[0].profileUrl,
-        postsNumber: user[0].Posts.length,
-        user: user[0],
-        publicPosts: publicPosts.reverse()
-        // ,
-        // postNumber: user[0].Comments.PostId[0]
-      });
-      // res.json(publicPosts);
-    });
-  });
-
-  app.get("/user/:username", function(req, res) {
-    var username = req.params.username;
-    db.Users.findAll({
-      where: {
-        username: username
-      }
-    }).then(function(userData) {
-      if (userData.length !== 0) {
-        res.render("profilePage", {
-          msg: "Welcome " + userData[0].firstName + " " + userData[0].lastName,
-          user: userData
+        res.render("profilepage", {
+          url: user[0].profileUrl,
+          postsNumber: user[0].Posts.length,
+          user: user[0],
+          publicPosts: publicPosts.reverse()
         });
+      } else {
+        res.render("404");
       }
-    });
-  });
-
-  app.get("/newpost/:userId", function(req, res) {
-    var userId = req.params.userId;
-    db.Users.findAll({
-      where: {
-        id: userId
-      }
-    }).then(function(data) {
-      res.render("newpost", {
-        user: data
-      });
     });
   });
 
@@ -86,20 +58,26 @@ module.exports = function(app) {
       },
       include: [db.Users, db.Comments]
     }).then(function(data) {
-      db.Comments.findAll({
-        where: {
-          PostId: data[0].id
-        },
-        include: [db.Users]
-      }).then(function(myData) {
-        res.render("comments", {
-          msg: "Heyyyyy",
-          post: data[0],
-          comment: myData
+      if (data[0]) {
+        db.Comments.findAll({
+          where: {
+            PostId: data[0].id
+          },
+          include: [db.Users]
+        }).then(function(myData) {
+          res.render("comments", {
+            msg: "Heyyyyy",
+            post: data[0],
+            comment: myData
+          });
         });
-        //res.json(data[0].title);
-        // res.json(myData[0].PostId);
-      });
+      } else {
+        res.render("404");
+      }
     });
+  });
+
+  app.get("*", function(req, res) {
+    res.render("404");
   });
 };

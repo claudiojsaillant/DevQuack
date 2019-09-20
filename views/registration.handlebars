@@ -50,19 +50,34 @@
     </div>
 
 </div>
-<div class="newForm newPostForm">
-    <div class="card">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Your comment on the Post</label>
-            <input type="text" class="form-control" id="content" aria-describedby="emailHelp"
-                placeholder="Your comment for this post">
-            <input type="text" class="form-control" id="userid" aria-describedby="emailHelp"
-                placeholder="input your id">
-            <small id="emailHelp" class="form-text text-muted">Your comment goes at the top</small>
-        </div>
-        <div id="Submit-a-post"><a href="#" class="btn btn-primary">Submit</a></div>
+<form>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="First-Name" 
+            placeholder="Enter First Name">
     </div>
-</div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="Last-Name" 
+            placeholder="Enter Last Name">
+    </div>
+    <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" class="form-control" id="User-Name" 
+            placeholder="Enter User Name">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+      <div class="form-group">
+        <label for="profileUrl">Profile Url</label>
+        <input type="text" class="form-control" id="Profile-Url" 
+            placeholder="Enter your Profile Url">
+    </div>
+  
+    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+</form>
 
 <style>
     .container {
@@ -148,30 +163,30 @@
 <link rel="stylesheet" href="/styles/root.css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript">
 
-    $("#Submit-a-post").on("click", function (event) {
+    $("#submit").on("click", function (event) {
         event.preventDefault();
 
         console.log("You got clicked");
 
-        var postId = $(".post").attr("value");
-        var userId = $('#userid').val();
+        //  get values
 
-        var newComment = {
-            content: $("#content").val().trim(),
-            upvotes: 0,
-            userId: parseInt(userId),
-            postId: parseInt(postId)
+        var newUser = {
+            firstName: $("#First-Name").val().trim(),
+            lastName: $("#Last-Name").val().trim(),
+            userName: $("#User-Name").val().trim(),
+            password: $("#exampleInputPassword1").val().trim(),
+            profileUrl: $("#Profile-Url").val().trim()
         }
-        submitComment(newComment);
+        submitUser(newUser);
     })
-    function submitComment(comment) {
-        $.ajax({ 
+    function submitUser(newUser) {
+        $.ajax({
             type: "POST",
-            url: "/api/comment",
-            data: comment,
+            url: "/api/user",
+            data: newUser,
             cache: false,
             success: function (data) {
-                location.reload();   
+                location.reload();
             }
         })
     }

@@ -12,10 +12,15 @@ module.exports = function(app) {
         msg: "Welcome!",
         posts: postsData
       });
+      // res.json(postsData);
     });
   });
+
+  app.get("/register", function(req, res) {
+    res.render("registration");
+  });
   app.get("/welcome/:userid/:categoryid", function(req, res) {
-    var categoryid = req.params.categoryid;
+    // var categoryid = req.params.categoryid;
     var userId = req.params.userid;
     db.Users.findAll({
       where: {
@@ -32,15 +37,15 @@ module.exports = function(app) {
         }
       }
 
-      console.log(publicPosts);
-      console.log(categoryid);
-      console.log(user[0].profileUrl, "URL");
       res.render("profilepage", {
         url: user[0].profileUrl,
         postsNumber: user[0].Posts.length,
         user: user[0],
         publicPosts: publicPosts.reverse()
+        // ,
+        // postNumber: user[0].Comments.PostId[0]
       });
+      // res.json(publicPosts);
     });
   });
 
@@ -75,7 +80,6 @@ module.exports = function(app) {
 
   app.get("/post/:id", function(req, res) {
     var postId = req.params.id;
-
     db.Posts.findAll({
       where: {
         id: postId
@@ -93,7 +97,8 @@ module.exports = function(app) {
           post: data[0],
           comment: myData
         });
-        // res.json(myData);
+        //res.json(data[0].title);
+        // res.json(myData[0].PostId);
       });
     });
   });

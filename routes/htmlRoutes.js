@@ -22,32 +22,34 @@ module.exports = function(app) {
 
   app.get("/welcome/:userid/:categoryid", function(req, res) {
     // var categoryid = req.params.categoryid;
-    var userId = req.params.userid;
-    db.Users.findAll({
-      where: {
-        id: userId
-      },
-      include: [db.Posts, db.Comments]
-    }).then(function(user) {
-      publicPosts = [];
-      console.log(user);
-      if (user[0]) {
-        for (i = 0; i < user[0].Posts.length; i++) {
-          if (user[0].Posts[i].CategoryId === parseInt(req.params.categoryid)) {
-            publicPosts.push(user[0].Posts[i]);
-          }
-        }
+    res.render("profilepage");
+    // var userId = req.params.userid;
+    // db.Users.findAll({
+    //   where: {
+    //     id: userId
+    //   },
+    //   include: [db.Posts, db.Comments]
+    // }).then(function(user) {
+    //   publicPosts = [];
+    //   console.log(user);
+    //   // res.render("profilepage");
+    //   if (user[0]) {
+    //     for (i = 0; i < user[0].Posts.length; i++) {
+    //       if (user[0].Posts[i].CategoryId === parseInt(req.params.categoryid)) {
+    //         publicPosts.push(user[0].Posts[i]);
+    //       }
+    //     }
 
-        res.render("profilepage", {
-          url: user[0].profileUrl,
-          postsNumber: user[0].Posts.length,
-          user: user[0],
-          publicPosts: publicPosts.reverse()
-        });
-      } else {
-        res.render("404");
-      }
-    });
+    //     res.render("profilepage", {
+    //       url: user[0].profileUrl,
+    //       postsNumber: user[0].Posts.length,
+    //       user: user[0],
+    //       publicPosts: publicPosts.reverse()
+    //     });
+    //   } else {
+    //     res.render("404");
+    //   }
+    // });
   });
 
   app.get("/post/:id", function(req, res) {

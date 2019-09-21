@@ -64,6 +64,7 @@ module.exports = function(app) {
           where: {
             PostId: data[0].id
           },
+          order: [["createdAt", "ASC"]],
           include: [db.Users]
         }).then(function(myData) {
           res.render("comments", {

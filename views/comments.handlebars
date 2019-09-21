@@ -10,7 +10,7 @@
     {{!-- 
     <div id="commentUserID">{{this.commentUserID}}</div>
     <div id="commentPostID">{{this.commentPostID}}</div>--}}
-    <div value="{{post.id}}" class="row post">
+    <div value="{{post.id}}" class="row post animated fadeInRight">
         <div class="card w-100">
             <h5 class="card-header creator">{{post.User.userName}}  <strong>On {{post.createdAt}}</strong></h5>
             <div class="card-body">
@@ -24,7 +24,7 @@
 
             {{#each comment}}
 
-            <li class="left clearfix"><span class="chat-img">
+            <li class="left clearfix animated fadeInRight"><span class="chat-img">
                     <img src={{this.User.profileUrl}} alt="User Avatar" class="img-circle" />
                 </span>
                 <div class="chat-body clearfix">
@@ -42,7 +42,7 @@
 
         </ul>
 
-     <div class="card newComment">
+     <div class="card newComment animated slideInUp">
         <div class="card-body">
 
             <div class="form-group">

@@ -96,7 +96,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  
+
   app.get("/test/createNewCat2", function(req, res) {
     db.Categories.create({
       name: "Project"
@@ -104,7 +104,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  
+
   app.get("/test/createNewCat3", function(req, res) {
     db.Categories.create({
       name: "Private"
@@ -112,7 +112,4 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-
 };
-
-

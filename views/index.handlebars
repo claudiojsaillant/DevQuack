@@ -5,7 +5,7 @@
   </a>
 </nav>
 
-<div class="jumbotron mx-auto">
+<div class="jumbotron mx-auto animated slideInDown">
   <h1 class="display-4">Hello, Developers!</h1>
   <p class="lead">This is a cool social app!</p>
   <hr class="my-4">
@@ -15,7 +15,7 @@
     Design something Amazing, the time is Now! Quack-Quack- From the DevQuack
     Team, Welcome :-).</p>
   <p class="jumbp lead mx-auto text-center">
-    <a class="jumbtn btn btn-primary btn-lg" href="/register" role="button">Sign Up Now!</a>
+    <a class="jumbtn btn btn-primary btn-lg animated tada" href="/register" role="button">Sign Up Now!</a>
   </p>
 </div>
 <h4 class="card-text">
@@ -25,14 +25,14 @@
 <div class="container">
 
   {{#each posts}}
-  <div class="row post">
+  <div class="row post animated slideInDown">
     <div class="card w-100">
       <h5 class="card-header">{{this.User.userName}} On {{this.createdAt}}</h5>
       <div class="card-body">
         <h5 class="card-title">{{this.title}}</h5>
         <p class="card-text">{{this.content}}</p>
-        <button type="button" class="btn btn-warning">Rate</button>
-        <a href="/post/{{this.id}}" class="btn btn-warning">Quacks({{this.Comments.length}})</a>
+        <button type="button" class="btn btn-warning postbtn">Rate</button>
+        <a href="/post/{{this.id}}" class="btn btn-warning postbtn">Quacks({{this.Comments.length}})</a>
       </div>
     </div>
   </div>

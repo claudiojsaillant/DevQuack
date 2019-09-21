@@ -88,28 +88,31 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  app.get("/test/createNewCat1", function(req, res) {
+    db.Categories.create({
+      name: "Public"
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  
+  app.get("/test/createNewCat2", function(req, res) {
+    db.Categories.create({
+      name: "Project"
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  
+  app.get("/test/createNewCat3", function(req, res) {
+    db.Categories.create({
+      name: "Private"
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+
 };
 
-app.get("/test/createNewCat1", function(req, res) {
-  db.Categories.create({
-    name: "Public"
-  }).then(function(data) {
-    res.json(data);
-  });
-});
 
-app.get("/test/createNewCat2", function(req, res) {
-  db.Categories.create({
-    name: "Project"
-  }).then(function(data) {
-    res.json(data);
-  });
-});
-
-app.get("/test/createNewCat3", function(req, res) {
-  db.Categories.create({
-    name: "Private"
-  }).then(function(data) {
-    res.json(data);
-  });
-});

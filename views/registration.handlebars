@@ -75,7 +75,12 @@
         if(newUser.firstName === '' || newUser.lastName === '' || newUser.password === '' || newUser.profileUrl === "" || newUser.userName === ""){
             alert("Make sure you fill all boxes");
         } else {
-            submitUser(newUser);
+            if($("#Profile-Url").val().trim().length > 140){
+                alert('Your URL image link is too large.')
+            } else {
+                submitUser(newUser);
+            }
+            
         }
     })
     function submitUser(newUser) {
